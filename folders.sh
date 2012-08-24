@@ -1,4 +1,4 @@
-www=~/Sites/noths/www
-deploy=~/Sites/noths/deploy
-puppet=~/Sites/noths/puppet
-config=~/Sites/noths/config
+zshd=~/.zsh.d
+www=~/Sites/www
+puppet=~/Sites/puppet
+puppet3=~/Sites/puppet3
