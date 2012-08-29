@@ -8,3 +8,4 @@ source $root/git.sh
 source $root/folders.sh
 source $root/jenkins.sh
 source $root/ssh.sh
+source $root/zsh.sh
