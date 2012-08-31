@@ -1,3 +1,4 @@
-www=~/Sites/www
-puppet=~/Sites/puppet
-puppet3=~/Sites/puppet3
+noths=~/Repositories/notonthehighstreet
+puppet=~/Repositories/puppet
+puppet3=~/Repositories/puppet3
+git=~/Repositories
