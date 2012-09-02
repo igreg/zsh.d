@@ -1,0 +1,2 @@
+setopt inc_append_history
+setopt no_share_history

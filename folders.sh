@@ -1,4 +1,4 @@
-www=~/Sites/noths/www
-deploy=~/Sites/noths/deploy
-puppet=~/Sites/noths/puppet
-config=~/Sites/noths/config
+noths=~/Repositories/notonthehighstreet
+puppet=~/Repositories/puppet
+puppet3=~/Repositories/puppet3
+git=~/Repositories

@@ -1,3 +1,4 @@
+alias ll='ls -lh'
 alias la='ll -a'
 alias sc="bundle exec rails console"
 alias t='touch tmp/restart.txt'
@@ -10,4 +11,5 @@ if which git 2>&1 > /dev/null; then
   alias gg="gitx --commit"
 fi
 
+alias reload="source ~/.zsh.d/load.sh"
 alias e="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl --new-window"
