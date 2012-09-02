@@ -5,7 +5,7 @@ alias grc="git repack && git gc --aggressive"
 alias gl="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate:short) %(authorname)'"
 alias rsp="rsync -a --progress --stats --human-readable"
 
-if [ -x `which gitx` ]; then
+if which git 2>&1 > /dev/null; then
   alias gk="gitx"
   alias gg="gitx --commit"
 fi
