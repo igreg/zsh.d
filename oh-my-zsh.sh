@@ -6,8 +6,11 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 cp $HOME/.zsh.d/dist/1337.zsh-theme $ZSH/themes/
-ZSH_THEME="1337"
-#ZSH_THEME=robbyrussell
+if [ -d $HOME/.rvm ]; then
+  ZSH_THEME="1337"
+else
+  ZSH_THEME=robbyrussell
+fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
