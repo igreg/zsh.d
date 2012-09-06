@@ -72,3 +72,11 @@ function delete_branch {
     script/hudson delete $branch || true
   fi
 }
+
+function gco {
+  git checkout $*
+  if [[ -s .rvmrc ]] ; then
+    unset rvm_rvmrc_cwd
+    cd .
+  fi
+}
