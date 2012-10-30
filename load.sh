@@ -9,3 +9,4 @@ source $root/folders.sh
 source $root/jenkins.sh
 source $root/ssh.sh
 source $root/zsh.sh
+source $root/bundler.sh
