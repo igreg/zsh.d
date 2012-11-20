@@ -12,4 +12,13 @@ if which git 2>&1 > /dev/null; then
 fi
 
 alias reload="source ~/.zsh.d/load.sh"
-alias e="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl --new-window"
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl --new-window"
+
+function e {
+  local directory=$1
+  if [ -f "$directory/.project.sublime-project" ]; then
+    subl $directory/.project.sublime-project
+  else
+    subl $directory
+  fi
+}
