@@ -64,12 +64,10 @@ function delete_branch {
   git branch $flag $branch
   echo "Removing remote branch"
   git push origin :$branch
-  echo "Cleaning up rails repository"
-  git remote prune origin
 
   if [ $djob = 1 ]; then
-    echo "Removing hudson job"
-    script/hudson delete $branch || true
+    echo "Removing CI job"
+    script/jenkins delete $branch || true
   fi
 }
 
