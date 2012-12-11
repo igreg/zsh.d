@@ -48,27 +48,27 @@ function forward {
 }
 
 function delete_branch {
-  branch=$1
+  for branch in $*; do
+    local flag="-d"
+    local djob=0
+    local remote=0
+    local dir=`pwd`
 
-  local flag="-d"
-  local djob=0
-  local remote=0
-  local dir=`pwd`
+    for option in $*; do
+      test $option = "--force" && flag="-D"
+      test $option = "--hudson" && djob=1
+    done
 
-  for option in $*; do
-    test $option = "--force" && flag="-D"
-    test $option = "--hudson" && djob=1
+    echo "Removing local branch"
+    git branch $flag $branch
+    echo "Removing remote branch"
+    git push origin :$branch
+
+    if [ $djob = 1 ]; then
+      echo "Removing CI job"
+      script/jenkins delete $branch || true
+    fi
   done
-
-  echo "Removing local branch"
-  git branch $flag $branch
-  echo "Removing remote branch"
-  git push origin :$branch
-
-  if [ $djob = 1 ]; then
-    echo "Removing CI job"
-    script/jenkins delete $branch || true
-  fi
 }
 
 function gco {
