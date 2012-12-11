@@ -27,3 +27,9 @@ function e {
     subl $directory
   fi
 }
+
+function v {
+  pushd ~puppet3 > /dev/null
+  vagrant $*
+  popd > /dev/null
+}
