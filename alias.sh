@@ -19,7 +19,7 @@ function e {
 
   if [ -f "$directory/.project.sublime-project" ]; then
     subl $directory/.project.sublime-project
-  else if [ -z "$directory" ]; then
+  elif [ -z "$directory" ]; then
     subl .
   else
     subl $directory
