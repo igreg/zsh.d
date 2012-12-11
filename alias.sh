@@ -19,8 +19,6 @@ function e {
 
   if [ -z "$directory" ]; then
     subl .
-  elif [ "$directory" = "conf" ]; then
-    subl ~/.zsh.d
   elif [ -f "$directory/.project.sublime-project" ]; then
     subl $directory/.project.sublime-project
   else
