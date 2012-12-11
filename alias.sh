@@ -16,8 +16,11 @@ alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl -
 
 function e {
   local directory=$1
+
   if [ -f "$directory/.project.sublime-project" ]; then
     subl $directory/.project.sublime-project
+  else if [ -z "$directory" ]; then
+    subl .
   else
     subl $directory
   fi
