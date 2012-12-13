@@ -6,24 +6,37 @@ function __git_branch {
 }
 
 function fetch {
+  local retval=0
+
   if [ "$1" ]; then
     git fetch $1
+    retval=$?
   else
     git fetch origin
+    retval=$?
   fi
+
+  return $retval
 }
 
 function pull {
+  local retval=0
+
   if [ "$1" = "--rebase" ]; then
     git pull --rebase origin `__git_branch`
+    retval=$?
   else
     git pull origin `__git_branch`
+    retval=$?
   fi
+
+  return $retval
 }
 
 function push {
   local cjob=0
   local force=0
+  local retval=0
 
   for option in $*; do
     test $option = "--hudson" && cjob=1
@@ -33,14 +46,18 @@ function push {
   if [ $? = 0 ]; then
     if [ $force = 1 ]; then
       git push origin `__git_branch` --force
+      retval=$?
     else
       git push origin `__git_branch`
+      retval=$?
     fi
   fi
 
   if [ $? = 0 -a $cjob = 1 ]; then
     script/hudson create `__git_branch`
   fi
+
+  return $retval
 }
 
 function forward {
