@@ -1,6 +1,9 @@
+zsh=~/.zsh.d
 conf=~/.zsh.d
+config=~/.zsh.d
 noths=~/Repositories/notonthehighstreet
 dw=~/Repositories/datawarehouse
+blogs=~/Repositories/blogs
 puppet=~/Repositories/puppet
 puppet3=~/Repositories/puppet3
 git=~/Repositories
