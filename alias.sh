@@ -5,6 +5,7 @@ alias t='touch tmp/restart.txt'
 alias grc="git repack && git gc --aggressive"
 alias gl="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate:short) %(authorname)'"
 alias rsp="rsync -a --progress --stats --human-readable"
+alias v="vagrant"
 
 alias pps='ps uww -p'
 alias gps='ps auxww| grep -i'
@@ -15,7 +16,7 @@ if which git 2>&1 > /dev/null; then
 fi
 
 alias reload="source ~/.zsh.d/load.sh"
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl --new-window"
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
 function e {
   local directory=$1
@@ -27,10 +28,4 @@ function e {
   else
     subl $directory
   fi
-}
-
-function v {
-  pushd ~puppet3 > /dev/null
-  vagrant $*
-  popd > /dev/null
 }
