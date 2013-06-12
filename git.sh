@@ -5,6 +5,14 @@ function __git_branch {
   fi
 }
 
+function push {
+  git push origin `__git_branch` $*
+}
+
+function forward {
+  git merge origin/`__git_branch`
+}
+
 if which gitx 2>&1 > /dev/null; then
   alias gk="gitx"
   alias gg="gitx --commit"
@@ -21,8 +29,6 @@ alias br="git checkout -b"
 alias brs="git branch"
 alias fetch="git fetch"
 alias pull="git pull --prune"
-alias push="git push origin `__git_branch`"
-alias forward="git merge origin/`__git_branch`"
 alias delete="git branch -d"
 
 # function push {
