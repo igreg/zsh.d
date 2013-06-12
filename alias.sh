@@ -10,11 +10,6 @@ alias v="vagrant"
 alias pps='ps uww -p'
 alias gps='ps auxww| grep -i'
 
-if which git 2>&1 > /dev/null; then
-  alias gk="gitx"
-  alias gg="gitx --commit"
-fi
-
 alias reload="source ~/.zsh.d/load.sh"
 alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 

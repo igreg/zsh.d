@@ -5,98 +5,78 @@ function __git_branch {
   fi
 }
 
-function fetch {
-  local retval=0
+if which gitx 2>&1 > /dev/null; then
+  alias gk="gitx"
+  alias gg="gitx --commit"
+fi
 
-  if [ "$1" ]; then
-    git fetch $1
-    retval=$?
-  else
-    git fetch origin
-    retval=$?
-  fi
+if which gittower 2>&1 > /dev/null; then
+  alias gk="gittower"
+  alias gg="gittower --status"
+fi
 
-  return $retval
-}
+alias st="git status"
+alias co="git checkout"
+alias br="git checkout -b"
+alias brs="git branch"
+alias fetch="git fetch"
+alias pull="git pull --prune"
+alias push="git push origin `__git_branch`"
+alias forward="git merge origin/`__git_branch`"
+alias delete="git branch -d"
 
-function pull {
-  local retval=0
+# function push {
+#   local cjob=0
+#   local force=0
+#   local retval=0
 
-  if [ "$1" = "--rebase" ]; then
-    git pull --rebase origin `__git_branch`
-    retval=$?
-  else
-    git pull origin `__git_branch`
-    retval=$?
-  fi
+#   for option in $*; do
+#     test $option = "--hudson" && cjob=1
+#     test $option = "--force" && force=1
+#   done
 
-  return $retval
-}
+#   if [ $? = 0 ]; then
+#     if [ $force = 1 ]; then
+#       git push origin `__git_branch` --force
+#       retval=$?
+#     else
+#       git push origin `__git_branch`
+#       retval=$?
+#     fi
+#   fi
 
-function push {
-  local cjob=0
-  local force=0
-  local retval=0
+#   if [ $? = 0 -a $cjob = 1 ]; then
+#     script/hudson create `__git_branch`
+#   fi
 
-  for option in $*; do
-    test $option = "--hudson" && cjob=1
-    test $option = "--force" && force=1
-  done
+#   return $retval
+# }
 
-  if [ $? = 0 ]; then
-    if [ $force = 1 ]; then
-      git push origin `__git_branch` --force
-      retval=$?
-    else
-      git push origin `__git_branch`
-      retval=$?
-    fi
-  fi
+# function delete_branch {
+#   local flag="-d"
+#   local ci=0
+#   local remote=0
+#   local dir=`pwd`
+#   local branches
+#   branches=()
 
-  if [ $? = 0 -a $cjob = 1 ]; then
-    script/hudson create `__git_branch`
-  fi
+#   for option in $*; do
+#     if [ $option = "--force" ]; then
+#       flag="-D"
+#     elif [ $option = "--ci" ]; then
+#       ci=1
+#     else
+#       branches+=($option)
+#     fi
+#   done
 
-  return $retval
-}
+#   for branch in $branches; do
+#     git branch $flag $branch && git push origin :$branch
+#     deleted=$?
 
-function forward {
-  git merge origin/`__git_branch`
-}
-
-function delete_branch {
-  local flag="-d"
-  local ci=0
-  local remote=0
-  local dir=`pwd`
-  local branches
-  branches=()
-
-  for option in $*; do
-    if [ $option = "--force" ]; then
-      flag="-D"
-    elif [ $option = "--ci" ]; then
-      ci=1
-    else
-      branches+=($option)
-    fi
-  done
-
-  for branch in $branches; do
-    git branch $flag $branch && git push origin :$branch
-    deleted=$?
-
-    if [ $deleted = 0 -a $ci = 1 ]; then
-      echo "Removing CI job"
-      script/jenkins delete $branch || true
-    fi
-  done
-}
-
-function gco {
-  git checkout $*
-  if [[ -s .rvmrc ]] ; then
-    unset rvm_rvmrc_cwd
-    cd .
-  fi
-}
+#     if [ $deleted = 0 -a $ci = 1 ]; then
+#       echo "Removing CI job"
+#       script/jenkins delete $branch || true
+#     fi
+#   done
+# }
