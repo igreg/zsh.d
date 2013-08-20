@@ -1,0 +1,22 @@
+# ControlMaster auto
+# ControlPath /tmp/ssh_mux_%h_%p_%r
+# ControlPersist 1h
+# ForwardX11 yes
+
+ForwardAgent yes
+GSSAPIAuthentication no
+GSSAPIKeyExchange no
+
+Host dev
+  HostName 33.33.33.10
+  User notonthehighstreet
+  Port 22
+  StrictHostKeyChecking no
+  ForwardAgent yes
+  IdentityFile ~/.ssh/vagrant
+
+Host master slave?
+  Hostname ci-%h
+
+Host lol
+  Hostname lol.igreg.info

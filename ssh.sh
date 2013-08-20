@@ -42,3 +42,11 @@ if [ ! -f /usr/bin/ssh-copy-id ]; then
     echo to make sure we haven't added extra keys that you weren't expecting.
   }
 fi
+
+alias rssh=/usr/bin/ssh
+
+function ssh {
+  local title="$1"
+  echo -ne "\e]1;$title\a"
+  rssh -F ~/.zsh.d/config/ssh $*
+}
