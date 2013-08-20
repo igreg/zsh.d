@@ -18,11 +18,6 @@ if which gitx 2>&1 > /dev/null; then
   alias gg="gitx --commit"
 fi
 
-if which gittower 2>&1 > /dev/null; then
-  alias gk="gittower"
-  alias gg="gittower --status"
-fi
-
 alias st="git status"
 alias co="git checkout"
 alias br="git checkout -b"
