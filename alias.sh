@@ -12,7 +12,7 @@ alias pps='ps uww -p'
 alias gps='ps auxww| grep -i'
 
 alias reload="source ~/.zsh.d/load.sh"
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias subl="/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl"
 
 function e {
   local directory=$1
