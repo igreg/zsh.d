@@ -18,8 +18,9 @@ Host dev
 Host master slave?
   Hostname ci-%h
 
-Host lol
-  Hostname lol.igreg.info
+Host lol foo
+  Hostname %h.igreg.info
+  User gregory
 
 Host hv
   User openstack
