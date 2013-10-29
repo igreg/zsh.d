@@ -6,4 +6,5 @@ dw=~/Repositories/datawarehouse
 blogs=~/Repositories/blogs
 puppet=~/Repositories/puppet
 puppet3=~/Repositories/puppet3
+deploy=~/Repositories/deployments
 git=~/Repositories
