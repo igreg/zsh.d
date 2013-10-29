@@ -24,3 +24,6 @@ Host lol foo
 
 Host hv
   User openstack
+
+Host *.hq
+  Hostname %h.noths.com
