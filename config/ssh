@@ -16,7 +16,7 @@ Host dev
   IdentityFile ~/.ssh/vagrant
 
 Host master slave?
-  Hostname ci-%h
+  Hostname ci-%h.hq.noths.com
 
 Host lol foo
   Hostname %h.igreg.info
