@@ -10,4 +10,5 @@ source $root/ssh.sh
 source $root/zsh.sh
 source $root/bundler.sh
 source $root/ruby.sh
-source $root/rvm.sh
+# source $root/rvm.sh
+source $root/rbenv.sh
