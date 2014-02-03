@@ -26,6 +26,10 @@ alias fetch="git fetch"
 alias pull="git pull --prune"
 alias delete="git branch -d"
 
+function clean_merged_branches {
+  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+}
+
 # function push {
 #   local cjob=0
 #   local force=0
