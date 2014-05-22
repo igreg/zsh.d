@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+directory=$1
+
+if [ -z "$directory" ]; then
+  subl .
+elif [ -f "$directory/.project.sublime-project" ]; then
+  subl $directory/.project.sublime-project
+else
+  subl $directory
+fi

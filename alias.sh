@@ -13,15 +13,5 @@ alias gps='ps auxww| grep -i'
 
 alias reload="source ~/.zsh.d/load.sh"
 alias subl="/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl"
-
-function e {
-  local directory=$1
-
-  if [ -z "$directory" ]; then
-    subl .
-  elif [ -f "$directory/.project.sublime-project" ]; then
-    subl $directory/.project.sublime-project
-  else
-    subl $directory
-  fi
-}
+alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
+alias a=atom

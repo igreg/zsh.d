@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+directory=$1
+message=$2
+
+cd $directory
+
+git pull --rebase

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+directory=$1
+message=$2
+
+cd $directory
+
+git add .
+
+if [ -z "$message" ]; then
+  git commit && git push
+else
+  git commit -m $message && git push
+fi
