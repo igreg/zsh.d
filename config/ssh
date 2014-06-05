@@ -27,3 +27,10 @@ Host hv
 
 Host *.hq *.uk1
   Hostname %h.noths.com
+
+Host *.sbx
+  HostName %h.noths.com
+  User vagrant
+  Port 22
+  StrictHostKeyChecking no
+  IdentityFile ~/.ssh/vagrant
