@@ -48,5 +48,5 @@ alias rssh=/usr/bin/ssh
 function ssh {
   local title="$1"
   echo -ne "\e]1;$title\a"
-  rssh -F ~/.zsh.d/config/ssh $*
+  rssh -o "StrictHostKeyChecking no" -F ~/.zsh.d/config/ssh $*
 }
